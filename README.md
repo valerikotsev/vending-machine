@@ -4,7 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Run `cd vending-machine`
+2. Run `npm install json-server` to install Mock API server
+3. Run `npx json-server --host localhost --port 3003 db.json` to run Mock API server
+4. Run `npm install`
+5. Run `ng serve --open` for a dev server. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
