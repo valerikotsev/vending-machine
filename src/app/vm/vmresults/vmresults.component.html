@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="bgTtl">
+    <b>Vending results</b>
+  </div>
+  <div *ngIf="spent === 0" class="bgLg mt_10">
+    You have withdraw {{remainder.toFixed(2)}} lv.
+  </div>
+  <div *ngIf="spent === -10" class="bgLr mt_10">
+    Amount is not enough to buy this product.
+  </div>
+  <div *ngIf="spent > 0" class="bgLg mt_10">
+    You have spent {{spent.toFixed(2)}} lv.
+  </div>
+  <div *ngIf="remainder > 0" class="bgLg mt_10">
+    The remainder is {{remainder.toFixed(2)}} lv. as follows:
+  </div>
+  <div *ngFor="let cn of coins; index as i" class="mt_5">
+    <div *ngIf="cn > 0">{{cn}} x {{nominals[i].value.toFixed(2)}} lv.</div>
+  </div>
+</div>

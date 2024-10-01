@@ -1,0 +1,24 @@
+<table class="tblProd rwTbl mb_10">
+  <tr class="bgLb">
+    <td class="colNo"><b>#</b></td>
+    <td class="colName"><b>Products | amount: {{amount.toFixed(2)}}</b></td>
+    <td class="colPrice"><b>Price</b></td>
+    <td><b>Edit</b></td>
+    <td><b>Del</b></td>
+    <td><b>Buy</b></td>
+  </tr>
+  <tr *ngFor="let prod of products; index as i" [attr.key]="prod.id" [ngClass]="{'bgSel': isOdd(i)}">
+    <td class="colNo">{{i + 1}}.</td>
+    <td *ngIf="ei !== i" class="colName">{{prod.name}}</td>
+    <td *ngIf="ei === i" class="colNameEd">
+      <input type="text" #inpName class="txtEdit" (keypress)="onKP($event)" (blur)="onBL()" [(ngModel)]="products[i].name" />
+    </td>
+    <td class="colPrice">{{prod.price.toFixed(2)}} lv.</td>
+    <td class="colEdit">
+      <i *ngIf="ei !== i" class="fa fa-edit" (click)="editProd(i)" title="edit product {{prod.name}}"></i>
+      <i *ngIf="ei === i" class="fa fa-save" title="save product {{prod.name}}"></i>
+    </td>
+    <td class="colDel"><i class="fa fa-trash-o" (click)="delProd(i)" title="delete product {{prod.name}}"></i></td>
+    <td class="colBuy"><i class="fa fa-shopping-cart" (click)="buyProd(i)" title="buy product {{prod.name}}"></i></td>
+  </tr>
+</table>

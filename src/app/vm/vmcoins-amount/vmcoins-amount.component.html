@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="bgTtl">
+    <b>Insert coins</b>
+  </div>
+  <div *ngFor="let nom of nominals; index as i" class="col-xs-6 col-sm-6 col-md-6 mt_10">
+    <button type="button" (click)="addAmount(nom.value)" class="btn btn-success">{{nom.value.toFixed(2)}} lv.</button>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 mtb_10">
+    <b class="fsz20">Amount: {{amount.toFixed(2)}}</b>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12">
+    <button type="button" [disabled]="amount < 0.0001" (click)="addAmount(0)" class="btn btn-success">Withdraw money</button>
+  </div>
+</div>
